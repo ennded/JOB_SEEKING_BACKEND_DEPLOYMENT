@@ -41,8 +41,10 @@ pipeline {
 
     post {
         always {
-            // Cleanup actions
-            cleanWs()
+            // Make sure this is inside a node block
+            script {
+                cleanWs()
+            }
         }
         success {
             echo 'Pipeline completed successfully!'
